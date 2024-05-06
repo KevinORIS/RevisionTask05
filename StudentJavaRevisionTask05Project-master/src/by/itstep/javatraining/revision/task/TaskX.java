@@ -31,6 +31,24 @@ package by.itstep.javatraining.revision.task;
 
 public class TaskX {
     public static int start(int h, int a, int b) {
-        return 0;
+    	if(h <= 0 || a <= 0 || b <= 0 || h <= b || a <= b) {
+    		System.out.println(0);
+    		return 0;
+    	}
+    	int dayCount = 0;
+        int currentHeight = 0;
+
+        while (currentHeight < h) {
+            dayCount++;
+            currentHeight += a;
+            
+            if (currentHeight >= h) {
+                break;
+            }
+            
+            currentHeight -= b;
+        }
+        
+        return dayCount;
     }
 }
