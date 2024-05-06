@@ -32,7 +32,6 @@ package by.itstep.javatraining.revision.task;
 public class TaskX {
     public static int start(int h, int a, int b) {
     	if(h <= 0 || a <= 0 || b <= 0 || h <= b || a <= b) {
-    		System.out.println(0);
     		return 0;
     	}
     	int dayCount = 0;
