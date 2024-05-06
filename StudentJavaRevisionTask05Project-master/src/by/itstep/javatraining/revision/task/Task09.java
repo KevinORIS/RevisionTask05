@@ -41,7 +41,67 @@ package by.itstep.javatraining.revision.task;
  */
 
 public class Task09 {
-    public static String start(int day, int month, int year) {
-        return "";
-    }
+	public static String start(int day, int month, int year) {
+		if (day < 1 || day > 31 || month < 1 || month > 12 || year < 0 
+				|| day > daysInMonth(month, year)) {
+			return "Error.";
+		}
+		int daysInMonth;
+
+		if (month == 2) {
+			if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+				daysInMonth = 29;
+			} else {
+				daysInMonth = 28;
+			}
+		} else if (month == 4 || month == 6 || month == 9 || month == 11) {
+			daysInMonth = 30;
+		} else {
+			daysInMonth = 31;
+		}
+
+		if (day < daysInMonth) {
+			day++;
+		} else {
+			day = 1;
+			if (month == 12) {
+				month = 1;
+				year++;
+			} else {
+				month++;
+			}
+		}
+		return String.format("%02d.%02d.%04d", day, month, year);
+	}
+	
+	public static int daysInMonth(int month, int year) {
+		if (month < 1 || month > 12) {
+			return 0;
+		}
+
+		int day = 0;
+
+		switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			day = 31; break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			day = 30; break;
+		case 2:
+			if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+				day = 29;
+			} else {
+				day = 28;
+			}
+		}
+		return day;
+	}
 }
