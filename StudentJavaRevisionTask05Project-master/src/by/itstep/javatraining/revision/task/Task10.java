@@ -40,7 +40,34 @@ package by.itstep.javatraining.revision.task;
  */
 
 public class Task10 {
-    public static String start(int a1, int b1, int a2, int b2) {
-        return "";
-    }
+	public static String start(int a1, int b1, int a2, int b2) {
+		if (a1 == b1 || a2 == b2) {
+			return "error";
+		}
+
+		if (b1 < a1) {
+			int t = a1;
+			a1 = b1;
+			b1 = t;
+		}
+
+		if (b2 < a2) {
+			int t = a2;
+			a2 = b2;
+			b2 = t;
+		}
+
+		int start = Math.max(a1, a2);
+		int end = Math.min(b1, b2);
+
+		String result = "segment - [" + start + ", " + end + "]";
+
+		if (start > end) {
+			result = "empty set";
+		} else if (start == end) {
+			result = "point - " + start;
+		}
+		
+		return result;
+	}
 }
