@@ -27,6 +27,19 @@ package by.itstep.javatraining.revision.task;
 
 public class Task02 {
     public static int start(int a, int b, int c, int d) {
-        return 0;
+    	int count = 0;
+        
+        if (a == b && b == c && c == d) {
+            count = 4; 
+        } else if ((a == b && b == c) || (b == c && c == d) 
+        		|| (a == b && b == d) || (a == c && c == d)) {
+            count = 3;
+        } else if (a == b || b == c || c == d || a == c || a == d || b == d) {
+            count = 2;
+        } else {
+            count = 0;
+        }
+        
+        return count;
     }
 }
