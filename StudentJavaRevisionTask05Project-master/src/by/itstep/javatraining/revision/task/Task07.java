@@ -41,7 +41,17 @@ package by.itstep.javatraining.revision.task;
  */
 
 public class Task07 {
-    public static String start(int number) {
-        return "?";
-    }
+	public static String start(int number) {
+		if (number < 0 || number > 36) {
+			return "error";
+		}
+
+		if (number == 0) {
+			return "green";
+		} else if ((number >= 1 && number <= 10) || (number >= 19 && number <= 28)) {
+			return number % 2 == 0 ? "black" : "red";
+		} else {
+			return number % 2 == 0 ? "red" : "black";
+		}
+	}
 }
