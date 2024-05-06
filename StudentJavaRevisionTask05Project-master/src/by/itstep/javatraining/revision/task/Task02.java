@@ -36,8 +36,6 @@ public class Task02 {
             count = 3;
         } else if (a == b || b == c || c == d || a == c || a == d || b == d) {
             count = 2;
-        } else {
-            count = 0;
         }
         
         return count;
