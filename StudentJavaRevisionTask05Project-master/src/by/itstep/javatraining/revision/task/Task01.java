@@ -36,6 +36,9 @@ package by.itstep.javatraining.revision.task;
 
 public class Task01 {
     public static int start(int n, int k) {
-        return 0;
+    	if(n <= 0 || k <= 0) {
+    		return 0;
+    	}
+        return n + (k - n % k);
     }
 }
