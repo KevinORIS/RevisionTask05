@@ -42,7 +42,24 @@ package by.itstep.javatraining.revision.task;
  */
 
 public class Task08 {
-    public static String start(String color1, String color2) {
-        return "?";
-    }
+	public static String start(String color1, String color2) {
+		if (color1 == null || color2 == null 
+				|| (!color1.equals("red") && !color1.equals("blue") && !color1.equals("yellow")) 
+				|| (!color2.equals("red") && !color2.equals("blue") && !color2.equals("yellow"))) {
+			return "error";
+		}
+
+		String result = "green";
+
+		if ((color1.equals("red")) && color2.equals("blue") 
+				|| (color1.equals("blue")) && color2.equals("red")) {
+			result = "violet";
+		} else if (color1.equals("red") && color2.equals("yellow") 
+				|| color1.equals("yellow") && color2.equals("red")) {
+			result = "orange";
+		} else if (color1.equals(color2)) {
+			result = color1;
+		}
+		return result;
+	}
 }
